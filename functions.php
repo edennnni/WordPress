@@ -58,6 +58,54 @@ function config() {
 
     add_action('after_setup_theme','config',0);
 
+    function wp_devs_widgets_init() {
+        register_sidebar(
+            array(
+                'name' => 'Blog Sidebar',
+                'id' => 'sidebar-blog',
+                'description' => 'This is the Blug Sidebar. You can add your widgets here.',
+                'before_widget' => '<div id="%1$s" class="widget-wrapper">',
+                'after_widget' => '</div>',
+                'before_title' => '<h2 class="widget-title">',
+                'after_title' => '</h2>',
+            )
+        );
 
+        register_sidebar(
+            array(
+                'name' => 'Service 1',
+                'id' => 'services-1',
+                'description' => 'First Service Area.',
+                'before_widget' => '<div id="%1$s" class="widget-wrapper">',
+                'after_widget' => '</div>',
+                'before_title' => '<h4 class="widget-title">',
+                'after_title' => '</h4>',
+            )
+        );
+        register_sidebar(
+            array(
+                'name' => 'Service 2',
+                'id' => 'services-2',
+                'description' => 'Second Service Area.',
+                'before_widget' => '<div id="%1$s" class="widget-wrapper">',
+                'after_widget' => '</div>',
+                'before_title' => '<h4 class="widget-title">',
+                'after_title' => '</h4>',
+            )
 
-?>
+            );
+              register_sidebar(
+            array(
+                'name' => 'Service 3',
+                'id' => 'services-3',
+                'description' => 'Third Service Area.',
+                'before_widget' => '<div id="%1$s" class="widget-wrapper">',
+                'after_widget' => '</div>',
+                'before_title' => '<h4 class="widget-title">',
+                'after_title' => '</h4>',
+            )
+            );
+    }
+    add_action('widgets_init','wp_devs_sidebars');
+
+?>   
